@@ -1,0 +1,102 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  password      String?
+  image         String?
+  role          Role      @default(USER) // USER, ADMIN
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  invoices      Invoice[]
+  clients       Client[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Invoice {
+  id            String    @id @default(cuid())
+  invoiceNumber String
+  date          DateTime
+  dueDate       DateTime
+  status        String    @default("DRAFT") // DRAFT, PENDING, PAID, OVERDUE
+
+  // Snapshot of details at time of creation
+  currency      String    // Code like USD
+  taxRate       Float     @default(0)
+  taxAmount     Float     @default(0)
+  subtotal      Float
+  total         Float
+  notes         String?
+  paymentTerms  String?
+  
+  // Business Snapshot (Sender)
+  businessName    String?
+  businessAddress String?
+  businessCity    String?
+  businessZip     String?
+  businessCountry String?
+  businessEmail   String?
+  businessPhone   String?
+  businessLogo    String? // Base64 or URL
+  
+  // Relations
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  clientId      String?
+  client        Client?   @relation(fields: [clientId], references: [id])
+  clientName    String    // Snapshot in case client is deleted
+  clientEmail   String?
+  clientAddress String?   // Snapshot
+  
+  lineItems     LineItem[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  @@index([userId])
+  @@index([status])
+}
+
+model LineItem {
+  id          String   @id @default(cuid())
+  description String
+  quantity    Float
+  rate        Float
+  amount      Float
+  
+  invoiceId   String
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  
+  @@index([invoiceId])
+}
+
+model Client {
+  id        String   @id @default(cuid())
+  name      String
+  email     String?
+  address   String?
+  phone     String?
+  
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  invoices  Invoice[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([userId])
+}
