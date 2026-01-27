@@ -53,7 +53,8 @@ export default async function EditInvoicePage({ params }: { params: Promise<{ id
     taxAmount: invoice.taxAmount,
     total: invoice.total,
     notes: invoice.notes || '',
-    paymentTerms: invoice.paymentTerms || ''
+    paymentTerms: invoice.paymentTerms || '',
+    type: (invoice.type as 'INVOICE' | 'QUOTATION') || 'INVOICE'
   };
 
   return (

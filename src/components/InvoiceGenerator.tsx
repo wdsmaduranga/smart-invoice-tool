@@ -51,7 +51,8 @@ const initialInvoiceData: InvoiceData = {
   taxAmount: 0,
   total: 0,
   notes: '',
-  paymentTerms: ''
+  paymentTerms: '',
+  type: 'INVOICE'
 };
 
 
@@ -62,10 +63,17 @@ interface InvoiceGeneratorProps {
   savedClients?: Client[];
   initialData?: InvoiceData;
   invoiceId?: string;
+  initialType?: 'INVOICE' | 'QUOTATION';
 }
 
-export default function InvoiceGenerator({ savedClients = [], initialData, invoiceId }: InvoiceGeneratorProps) {
-  const [invoiceData, setInvoiceData] = useState<InvoiceData>(initialData || initialInvoiceData);
+export default function InvoiceGenerator({ savedClients = [], initialData, invoiceId, initialType = 'INVOICE' }: InvoiceGeneratorProps) {
+  const [invoiceData, setInvoiceData] = useState<InvoiceData>(() => {
+      if (initialData) return initialData;
+      return {
+          ...initialInvoiceData,
+          type: initialType
+      };
+  });
   const [hasMounted, setHasMounted] = useState(false);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
@@ -81,11 +89,12 @@ export default function InvoiceGenerator({ savedClients = [], initialData, invoi
         ...prev,
         invoiceNumber: `INV-${now}`,
         date: today,
-        dueDate: dueDate
+        dueDate: dueDate,
+        type: initialType // Ensure type is set correctly on client mount too if needed
       }));
     }
     setHasMounted(true);
-  }, [initialData]);
+  }, [initialData, initialType]);
 
   // Calculate totals whenever line items or tax rate changes
   useEffect(() => {
@@ -193,7 +202,12 @@ export default function InvoiceGenerator({ savedClients = [], initialData, invoi
                             toast.error(result.error);
                         } else {
                             toast.success('Invoice saved successfully!');
-                            router.push('/dashboard');
+                            // Redirect to the invoice view page
+                            if (result.id) {
+                                router.push(`/dashboard/invoices/${result.id}`);
+                            } else {
+                                router.push('/dashboard');
+                            }
                         }
                     });
                 }}
@@ -202,6 +216,32 @@ export default function InvoiceGenerator({ savedClients = [], initialData, invoi
                 {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
                 Save Invoice
             </Button>
+        </div>
+      </div>
+      
+      <div className="mb-6 flex items-center gap-4 bg-white p-4 rounded-lg border shadow-sm w-fit">
+        <label className="text-sm font-medium text-gray-700">Document Type:</label>
+        <div className="flex bg-gray-100 p-1 rounded-md">
+           <button
+             onClick={() => updateInvoiceData('type', 'INVOICE')}
+             className={`px-4 py-1.5 rounded text-sm font-medium transition-colors ${
+               invoiceData.type === 'INVOICE' || !invoiceData.type
+                 ? 'bg-white text-blue-600 shadow-sm'
+                 : 'text-gray-600 hover:text-gray-900'
+             }`}
+           >
+             Invoice
+           </button>
+           <button
+             onClick={() => updateInvoiceData('type', 'QUOTATION')}
+             className={`px-4 py-1.5 rounded text-sm font-medium transition-colors ${
+               invoiceData.type === 'QUOTATION'
+                 ? 'bg-white text-blue-600 shadow-sm'
+                 : 'text-gray-600 hover:text-gray-900'
+             }`}
+           >
+             Quotation
+           </button>
         </div>
       </div>
 

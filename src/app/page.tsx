@@ -7,15 +7,15 @@ export default function Home() {
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-12">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Smart Invoice Tool
+            Smart Invoice & Quotation Tool
           </h1>
           <h2 className="text-xl md:text-2xl text-gray-600 mb-6">
-            Professional Invoice Generator - Create, customize, and download invoices in seconds
+            Professional Generator - Create invoices and quotes in seconds
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
-            Our free online invoice generator helps businesses worldwide create professional invoices with ease. 
-            Features include PDF export, multi-currency support, real-time preview, and customizable templates. 
-            Perfect for freelancers, small businesses, and entrepreneurs.
+            Our free online tool helps businesses create professional invoices and quotations with ease. 
+            Features include PDF export, multi-currency support, and customizable templates. 
+            Perfect for freelancers and small businesses.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600 mb-8">
             <span className="bg-white px-3 py-1 rounded-full shadow">✓ 100% Free</span>
@@ -44,7 +44,7 @@ export default function Home() {
               Why Choose Smart Invoice Tool?
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Streamline your billing process with our comprehensive invoice creation tool
+              Streamline your billing process with our comprehensive invoice and quotation tool
             </p>
           </div>
           
@@ -98,7 +98,7 @@ export default function Home() {
                 Is the invoice generator completely free?
               </h4>
               <p className="text-gray-600">
-                Yes, our invoice generator is 100% free to use. Create unlimited invoices, export to PDF, and use all features without any cost or registration required.
+                Yes, our tool is 100% free. Create unlimited invoices and quotations, export to PDF, and use all features without any cost.
               </p>
             </div>
             

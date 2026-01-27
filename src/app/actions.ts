@@ -97,6 +97,7 @@ export async function saveInvoice(data: InvoiceData, id?: string) {
             total: data.total,
             notes: data.notes,
             paymentTerms: data.paymentTerms,
+            type: data.type || 'INVOICE',
 
             businessName: data.businessDetails.name,
             businessAddress: data.businessDetails.address,
@@ -123,32 +124,50 @@ export async function saveInvoice(data: InvoiceData, id?: string) {
             }
         };
 
+        let invoice;
         if (id) {
+            // Delete existing line items for update (simplest way to handle updates)
             await prisma.lineItem.deleteMany({ where: { invoiceId: id } });
-            await prisma.invoice.update({
+            invoice = await prisma.invoice.update({
                 where: { id },
                 data: invoiceData
             });
         } else {
-            await prisma.invoice.create({
+            invoice = await prisma.invoice.create({
                 data: invoiceData
             });
         }
 
         revalidatePath('/dashboard');
-        return { success: true };
+        return { success: true, id: invoice.id };
     } catch (error) {
         console.error('Save error:', error);
         return { error: 'Failed to save invoice' };
     }
 }
 
-export async function getInvoices() {
+export async function getInvoices(type?: 'INVOICE' | 'QUOTATION', query?: string) {
     const session = await auth();
     if (!session?.user?.id) return [];
 
+    const where: any = { userId: session.user.id };
+
+    if (type) {
+        where.type = type;
+    }
+
+    if (query) {
+        where.OR = [
+            { invoiceNumber: { contains: query } },
+            { clientName: { contains: query } },
+            { businessName: { contains: query } },
+            // Cast total to string for search if needed, but usually search text fields
+            // SQLite/Prisma limitation on searching numbers as strings often requires raw query or skipping
+        ];
+    }
+
     const invoices = await prisma.invoice.findMany({
-        where: { userId: session.user.id },
+        where,
         orderBy: { createdAt: 'desc' },
     });
 

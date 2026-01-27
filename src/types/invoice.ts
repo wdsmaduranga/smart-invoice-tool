@@ -47,4 +47,5 @@ export interface InvoiceData {
   total: number;
   notes: string;
   paymentTerms: string;
+  type?: 'INVOICE' | 'QUOTATION';
 }

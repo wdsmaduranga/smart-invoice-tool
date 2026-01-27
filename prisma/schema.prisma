@@ -32,6 +32,7 @@ model Invoice {
   date          DateTime
   dueDate       DateTime
   status        String    @default("DRAFT") // DRAFT, PENDING, PAID, OVERDUE
+  type          String    @default("INVOICE") // INVOICE, QUOTATION
 
   // Snapshot of details at time of creation
   currency      String    // Code like USD

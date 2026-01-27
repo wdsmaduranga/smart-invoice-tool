@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Smart Invoice Tool - Professional Invoice Generator | Free Online Invoice Maker",
-  description: "Smart Invoice Tool - Create professional invoices instantly with our free online invoice generator. Easy-to-use interface, PDF export, multi-currency support, and customizable templates for businesses worldwide.",
-  keywords: "invoice generator, online invoice maker, free invoice, PDF invoice, business invoice, professional invoice, invoice template, billing software",
+  title: "Smart Invoice Tool - Free Invoice & Quotation Generator",
+  description: "Create professional invoices and quotations instantly. Free online tool for freelancers and small businesses. PDF export, multi-currency support, and no sign-up required.",
+  keywords: "invoice generator, quotation maker, estimate generator, online invoice, free invoice tool, PDF invoice, business billing, freelance invoice",
   authors: [{ name: "Smart Invoice Tool" }],
   creator: "Smart Invoice Tool",
   publisher: "Smart Invoice Tool",
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Smart Invoice Tool - Professional Invoice Generator",
-    description: "Smart Invoice Tool - Create professional invoices instantly with our free online invoice generator. Easy PDF export, multi-currency support, and customizable templates.",
+    title: "Smart Invoice Tool - Free Invoice & Quotation Generator",
+    description: "Create professional invoices and quotations instantly. Free online tool with PDF export, multi-currency support, and customizable templates.",
     url: "https://smartinvoicetool.com",
     siteName: "Smart Invoice Tool",
     images: [
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smart Invoice Tool - Professional Invoice Generator",
-    description: "Smart Invoice Tool - Create professional invoices instantly with our free online invoice generator. Easy PDF export and multi-currency support.",
+    title: "Smart Invoice Tool - Free Invoice & Quotation Generator",
+    description: "Create professional invoices and quotations instantly. Free online tool with PDF export.",
     images: ["https://smartinvoicetool.com/logo.png"],
   },
   robots: {

@@ -190,7 +190,8 @@ export const generatePDFSimple = async (invoiceData: InvoiceData) => {
     }
 
     // INVOICE title and number (in same left column as logo)
-    leftColumnY = addText('INVOICE', margin, leftColumnY, { size: 24, style: 'bold', color: '#111827' });
+    const title = invoiceData.type === 'QUOTATION' ? 'QUOTATION' : 'INVOICE';
+    leftColumnY = addText(title, margin, leftColumnY, { size: 24, style: 'bold', color: '#111827' });
     leftColumnY = addText(`#${invoiceData.invoiceNumber}`, margin, leftColumnY, { size: 12, color: '#6B7280' });
 
     // RIGHT COLUMN: Date information (matching text-right layout)

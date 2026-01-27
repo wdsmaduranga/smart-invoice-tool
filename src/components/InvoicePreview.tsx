@@ -372,7 +372,7 @@ export default function InvoicePreview({ invoiceData }: InvoicePreviewProps) {
                 className="object-contain mb-4 print:h-12"
               />
             )}
-            <h2 className="text-3xl font-bold text-gray-900 print:text-2xl">INVOICE</h2>
+            <h2 className="text-3xl font-bold text-gray-900 print:text-2xl">{invoiceData.type === 'QUOTATION' ? 'QUOTATION' : 'INVOICE'}</h2>
             <p className="text-gray-600">#{invoiceData.invoiceNumber}</p>
           </div>
           <div className="text-right print:text-sm">
