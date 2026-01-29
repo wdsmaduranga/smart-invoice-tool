@@ -38,6 +38,20 @@ export function Footer() {
                 <span className="sr-only">LinkedIn</span>
               </a>
             </div>
+
+            {/* Product Hunt Badge - UPDATE post_id and slug when live */}
+            <div className="pt-4">
+              <a href="https://www.producthunt.com/posts/smart-invoice-tool?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-smart-invoice-tool" target="_blank" rel="noopener noreferrer">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=456789&theme=light" 
+                  alt="Smart Invoice Tool - Professional Invoice Generator | Product Hunt" 
+                  style={{ width: '250px', height: '54px' }} 
+                  width="250" 
+                  height="54" 
+                />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
