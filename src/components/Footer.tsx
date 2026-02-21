@@ -73,6 +73,11 @@ export function Footer() {
                   <ArrowRight className="w-3 h-3" /> Sign Up Free
                 </Link>
               </li>
+              <li>
+                <Link href="/guides" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2 hover:translate-x-1 duration-200">
+                  <ArrowRight className="w-3 h-3" /> Guides & Tips
+                </Link>
+              </li>
             </ul>
           </div>
 

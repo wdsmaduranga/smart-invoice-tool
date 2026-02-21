@@ -18,6 +18,23 @@ export default function Header({ user }: { user?: { name?: string | null; image?
         </Link>
         
         <nav className="flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-1">
+            <Link href="/about">
+              <Button variant={pathname === '/about' ? 'secondary' : 'ghost'} size="sm">
+                About
+              </Button>
+            </Link>
+            <Link href="/faq">
+              <Button variant={pathname === '/faq' ? 'secondary' : 'ghost'} size="sm">
+                FAQ
+              </Button>
+            </Link>
+            <Link href="/guides">
+              <Button variant={pathname?.startsWith('/guides') ? 'secondary' : 'ghost'} size="sm">
+                Guides
+              </Button>
+            </Link>
+          </div>
           {user ? (
             <>
               <Link href="/dashboard">
