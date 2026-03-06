@@ -96,6 +96,7 @@ export default async function RootLayout({
           gtag('js', new Date());
 
           gtag('config', 'G-T09GT55T2Y');
+          gtag('config', 'AW-624488252');
         `}</Script>
         <script
           type="application/ld+json"

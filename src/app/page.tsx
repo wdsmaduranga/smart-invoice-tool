@@ -82,6 +82,67 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SEO Content Section: How to Make an Invoice */}
+      <section className="bg-blue-50 py-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+              How to Create an Invoice Online
+            </h3>
+            <p className="text-gray-600">
+              Follow these simple steps to generate your professional invoice in under two minutes.
+            </p>
+          </div>
+          
+          <div className="space-y-8 text-gray-700">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
+              <h4 className="text-xl font-bold text-gray-900 mb-2">1. Add Your Business Details</h4>
+              <p>Start by entering your company name, email address, physical address, and phone number. This ensures your client knows exactly who the invoice is from. You can also upload a professional business logo to build trust.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
+              <h4 className="text-xl font-bold text-gray-900 mb-2">2. Enter the Client&apos;s Information</h4>
+              <p>Input the &quot;Bill To&quot; details, including your client&apos;s name or company, their billing address, and contact information. A correct billing address is crucial for large organizations where invoices are processed by a dedicated accounts payable department.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
+              <h4 className="text-xl font-bold text-gray-900 mb-2">3. Itemize Your Products or Services</h4>
+              <p>Clearly list the services provided or items sold. Include detailed descriptions, quantities, and the unit price. Our online generator will automatically calculate the line totals, keeping your math error-free.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
+              <h4 className="text-xl font-bold text-gray-900 mb-2">4. Set the Terms and Taxes</h4>
+              <p>Add any applicable sales tax, VAT, or discounts. Don&apos;t forget to define the payment terms (e.g., Net 30, Due on Receipt) in the notes section, and provide clear payment instructions such as bank account details or PayPal payment links.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
+              <h4 className="text-xl font-bold text-gray-900 mb-2">5. Download as PDF</h4>
+              <p>Once everything looks perfect in the live preview, click the download button to generate a clean, professional PDF invoice that is ready to be emailed to your client.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Section: Why Professional Invoicing Matters */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+            Why Use a Dedicated Invoice Generator?
+          </h3>
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
+            <p>
+              As a freelancer, contractor, or small business owner, managing your cash flow is critical to your success. A common pitfall is relying on disorganized Word documents or messy Excel spreadsheets to bill clients. This not only looks unprofessional but also dramatically increases the chances of calculation errors and missing payment terms.
+            </p>
+            <p>
+              Our <strong>Smart Invoice Tool</strong> is designed to solve this exact problem. By formatting your data into a legally compliant, standardized layout, you remove the friction between delivering your work and getting paid. A beautifully formatted, PDF-ready invoice signals to your clients that you are a serious professional, which in turn encourages faster payment times.
+            </p>
+            <p>
+              Furthermore, using our web-based tool means you don&apos;t have to download bulky software or pay expensive monthly subscriptions. It operates securely in your browser, ensuring that your financial data and client information remain private. Whether you are creating a preliminary quotation, a proforma invoice, or a final billing statement, our responsive generator scales to meet your exact business needs.
+            </p>
+          </div>
+        </div>
+      </section>
       
       {/* FAQ Section for SEO */}
       <section className="bg-gray-50 py-16">

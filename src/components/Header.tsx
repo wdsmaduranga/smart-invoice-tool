@@ -34,6 +34,11 @@ export default function Header({ user }: { user?: { name?: string | null; image?
                 Guides
               </Button>
             </Link>
+            <Link href="/receipt-maker">
+              <Button variant={pathname?.startsWith('/receipt-maker') ? 'secondary' : 'ghost'} size="sm">
+                Receipt Maker
+              </Button>
+            </Link>
           </div>
           {user ? (
             <>

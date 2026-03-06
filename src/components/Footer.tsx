@@ -64,6 +64,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/receipt-maker" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2 hover:translate-x-1 duration-200">
+                  <ArrowRight className="w-3 h-3" /> Receipt Maker
+                </Link>
+              </li>
+              <li>
                 <Link href="/dashboard" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2 hover:translate-x-1 duration-200">
                   <ArrowRight className="w-3 h-3" /> Dashboard
                 </Link>
