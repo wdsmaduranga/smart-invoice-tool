@@ -56,12 +56,12 @@ export default function ReceiptMakerPage() {
           <div className="space-y-8">
             <div className="bg-emerald-50 p-6 rounded-lg shadow-sm border border-emerald-100">
               <h4 className="text-xl font-bold text-gray-900 mb-2">1. Change the Title</h4>
-              <p>In the top right corner of the generator, simply delete the word "INVOICE" and type "RECEIPT" or "CASH RECEIPT". This immediately changes the legal nature of the document.</p>
+              <p>In the top right corner of the generator, simply delete the word &quot;INVOICE&quot; and type &quot;RECEIPT&quot; or &quot;CASH RECEIPT&quot;. This immediately changes the legal nature of the document.</p>
             </div>
             
             <div className="bg-emerald-50 p-6 rounded-lg shadow-sm border border-emerald-100">
               <h4 className="text-xl font-bold text-gray-900 mb-2">2. Add Payment Details</h4>
-              <p>Enter the customer's information and list exactly what was purchased. In the "Notes" or "Terms" section, prominently write "PAID IN FULL" and specify the payment method used (e.g., "Paid via Credit Card ending in 1234").</p>
+              <p>Enter the customer&apos;s information and list exactly what was purchased. In the &quot;Notes&quot; or &quot;Terms&quot; section, prominently write &quot;PAID IN FULL&quot; and specify the payment method used (e.g., &quot;Paid via Credit Card ending in 1234&quot;).</p>
             </div>
             
             <div className="bg-emerald-50 p-6 rounded-lg shadow-sm border border-emerald-100">

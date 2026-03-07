@@ -77,12 +77,12 @@ export default function TrackUnpaidInvoicesGuidePage() {
               <div className="border border-slate-200 rounded-xl overflow-hidden">
                 <div className="bg-slate-50 p-4 border-b border-slate-200 flex items-center gap-3">
                   <Mail className="w-5 h-5 text-slate-400" />
-                  <h3 className="font-bold text-slate-900">1. The "Before It's Due" Reminder (3 Days Prior)</h3>
+                  <h3 className="font-bold text-slate-900">1. The &quot;Before It&apos;s Due&quot; Reminder (3 Days Prior)</h3>
                 </div>
                 <div className="p-4 bg-white">
                   <p className="text-sm text-slate-600 mb-3">Keep it extremely friendly. This is just a helpful nudge.</p>
                   <div className="bg-slate-50 p-3 rounded text-sm font-mono text-slate-700">
-                    "Hi [Name], Hope you're having a great week! Just sending a quick, friendly reminder that invoice #1234 is due on Friday. I've attached a copy here for your convenience. Let me know if you have any questions!"
+                    &quot;Hi [Name], Hope you&apos;re having a great week! Just sending a quick, friendly reminder that invoice #1234 is due on Friday. I&apos;ve attached a copy here for your convenience. Let me know if you have any questions!&quot;
                   </div>
                 </div>
               </div>
@@ -90,12 +90,12 @@ export default function TrackUnpaidInvoicesGuidePage() {
               <div className="border border-slate-200 rounded-xl overflow-hidden">
                 <div className="bg-amber-50 p-4 border-b border-amber-100 flex items-center gap-3">
                   <AlertCircle className="w-5 h-5 text-amber-500" />
-                  <h3 className="font-bold text-slate-900">2. The "Overdue" Notice (1-3 Days Late)</h3>
+                  <h3 className="font-bold text-slate-900">2. The &quot;Overdue&quot; Notice (1-3 Days Late)</h3>
                 </div>
                 <div className="p-4 bg-white">
                   <p className="text-sm text-slate-600 mb-3">Direct, but assume positive intent (e.g., they just forgot).</p>
                   <div className="bg-slate-50 p-3 rounded text-sm font-mono text-slate-700">
-                    "Hi [Name], I'm writing to check on the status of invoice #1234 (attached) for $500, which was due on [Date]. Please let me know if this has already been processed, or if you need an alternative payment link."
+                    &quot;Hi [Name], I&apos;m writing to check on the status of invoice #1234 (attached) for $500, which was due on [Date]. Please let me know if this has already been processed, or if you need an alternative payment link.&quot;
                   </div>
                 </div>
               </div>
@@ -103,12 +103,12 @@ export default function TrackUnpaidInvoicesGuidePage() {
               <div className="border border-slate-200 rounded-xl overflow-hidden">
                 <div className="bg-red-50 p-4 border-b border-red-100 flex items-center gap-3">
                   <AlertCircle className="w-5 h-5 text-red-500" />
-                  <h3 className="font-bold text-slate-900">3. The "Late Fee" Enforcement (14 Days Late)</h3>
+                  <h3 className="font-bold text-slate-900">3. The &quot;Late Fee&quot; Enforcement (14 Days Late)</h3>
                 </div>
                 <div className="p-4 bg-white">
                   <p className="text-sm text-slate-600 mb-3">Firm professional boundries. Introduce the late fee.</p>
                   <div className="bg-slate-50 p-3 rounded text-sm font-mono text-slate-700">
-                    "Hi [Name], Invoice #1234 is now two weeks past due. Per my payment terms, a late fee of 1.5% has now been added to the balance. The new total is $507.50. Please find the updated invoice attached and remit payment by [Date] to avoid further penalties."
+                    &quot;Hi [Name], Invoice #1234 is now two weeks past due. Per my payment terms, a late fee of 1.5% has now been added to the balance. The new total is $507.50. Please find the updated invoice attached and remit payment by [Date] to avoid further penalties.&quot;
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function TrackUnpaidInvoicesGuidePage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">When They Still Don't Pay</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">When They Still Don&apos;t Pay</h2>
             <p className="text-slate-600 leading-relaxed mb-4">
               If emails are going unanswered after 30 days, escalate to a phone call. Sometimes emails simply get lost in spam filters or buried in an inbox. A quick, polite phone call can instantly clear up a miscommunication.
             </p>
