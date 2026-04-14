@@ -36,9 +36,7 @@ export function ConditionalAdUnit({
   useEffect(() => {
     if (!isAllowed) return;
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).adsbygoogle = (window as any).adsbygoogle || [];
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ((window as any).adsbygoogle as any[]).push({});
     } catch {
       // AdSense not loaded yet — silently ignore
