@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, ArrowRight, Clock, BookOpen, CheckCircle, AlertCircle, Briefcase } from "lucide-react";
+import { FileText, ArrowRight, Clock, BookOpen, CheckCircle, AlertCircle } from "lucide-react";
 
 export const revalidate = 86400;
 

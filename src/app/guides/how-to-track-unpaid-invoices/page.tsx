@@ -134,7 +134,7 @@ export default function TrackUnpaidInvoicesGuidePage() {
               </table>
             </div>
             <p className="text-slate-600 text-sm bg-teal-50 border border-teal-200 rounded-lg p-4">
-              💡 <strong>Pro tip:</strong> Colour-code your "Status" column: green for Paid, yellow for Sent/Due Soon, and red for Overdue. A quick visual scan at the start of each week tells you exactly where your attention is needed.
+              💡 <strong>Pro tip:</strong> Colour-code your &quot;Status&quot; column: green for Paid, yellow for Sent/Due Soon, and red for Overdue. A quick visual scan at the start of each week tells you exactly where your attention is needed.
             </p>
           </section>
 
