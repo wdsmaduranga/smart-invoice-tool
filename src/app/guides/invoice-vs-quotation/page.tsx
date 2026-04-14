@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, ArrowRight, Clock, BookOpen, CheckCircle } from "lucide-react";
+import { FileText, ArrowRight, Clock, BookOpen, CheckCircle, AlertCircle, Briefcase } from "lucide-react";
+
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "Invoice vs. Quotation: What's the Difference? | Smart Invoice Tool",
   description: "Understand the difference between an invoice and a quotation. Learn when to use each document, how to convert a quote to an invoice, and best practices for freelancers and small businesses.",
-  keywords: "invoice vs quotation, quote vs invoice, difference between invoice and quotation, when to send quotation, when to send invoice, estimate vs invoice",
+  keywords: "invoice vs quotation, quote vs invoice, difference between invoice and quotation, when to send quotation, when to send invoice, estimate vs invoice, proforma invoice",
   openGraph: {
     title: "Invoice vs. Quotation: What's the Difference?",
     description: "Learn when to use an invoice versus a quotation, how they differ, and how to convert a quote into an invoice.",
@@ -16,9 +18,27 @@ export const metadata: Metadata = {
   },
 };
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Invoice vs. Quotation: What's the Difference?",
+  "description": "Understand the key differences between an invoice and a quotation and learn when to use each document in your billing lifecycle.",
+  "url": "https://smartinvoicetool.com/guides/invoice-vs-quotation",
+  "datePublished": "2025-02-15",
+  "dateModified": "2025-04-14",
+  "author": { "@type": "Organization", "name": "Smart Invoice Tool", "url": "https://smartinvoicetool.com" },
+  "publisher": { "@type": "Organization", "name": "Smart Invoice Tool", "url": "https://smartinvoicetool.com" },
+  "inLanguage": "en-US",
+};
+
 export default function InvoiceVsQuotationPage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+
       {/* Breadcrumb */}
       <div className="bg-white border-b border-slate-200 py-4 px-4">
         <div className="container mx-auto max-w-3xl">
@@ -37,14 +57,24 @@ export default function InvoiceVsQuotationPage() {
         <div className="container mx-auto max-w-3xl">
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xs font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Invoicing Basics</span>
-            <span className="text-xs text-slate-500 flex items-center gap-1"><Clock className="w-3 h-3" /> 5 min read</span>
+            <span className="text-xs text-slate-500 flex items-center gap-1"><Clock className="w-3 h-3" /> 7 min read</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
             Invoice vs. Quotation: What&apos;s the Difference?
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            If you&apos;ve ever been unsure whether to send an invoice or a quotation to a client, you&apos;re not alone. These two documents serve very different purposes in the billing lifecycle, and mixing them up can cause confusion, delays, and awkward conversations about money.
+            If you&apos;ve ever been unsure whether to send an invoice or a quotation to a client, you&apos;re not alone. These two documents serve very different purposes in the billing lifecycle, and mixing them up can cause confusion, payment delays, and awkward conversations about money. This guide explains every difference clearly.
           </p>
+          {/* Author block */}
+          <div className="flex items-center gap-3 mt-6 pt-6 border-t border-slate-100">
+            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="font-bold text-blue-600 text-sm">SI</span>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-slate-900">Smart Invoice Team</p>
+              <p className="text-xs text-slate-500">Published February 2025 · Updated April 2025</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -71,6 +101,7 @@ export default function InvoiceVsQuotationPage() {
                     ["Legally binding?", "Usually not", "Yes (when accepted)"],
                     ["Requires payment?", "No", "Yes"],
                     ["Includes due date?", "No", "Yes"],
+                    ["Includes invoice number?", "No", "Yes (required)"],
                     ["Called also", "Quote, Estimate, Proposal", "Bill, Tax Invoice"],
                   ].map(([aspect, quote, invoice]) => (
                     <tr key={aspect} className="hover:bg-slate-50">
@@ -93,8 +124,11 @@ export default function InvoiceVsQuotationPage() {
             <p className="text-slate-600 leading-relaxed mb-4">
               When a client asks &quot;How much will this cost?&quot; — your answer is a quotation. The client can either accept, reject, or negotiate the quote. Once they accept it, both parties have agreed to the scope and price.
             </p>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 leading-relaxed mb-4">
               Quotations are particularly important for service businesses and contractors where the scope of work needs to be agreed upon before starting. They protect you from scope creep (clients adding work without additional payment) and protect the client from surprise costs.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              A well-written quotation should include: your business details, client details, a description of the proposed work, a price breakdown per item or service, the total cost, an expiry date (e.g., &quot;Valid for 30 days&quot;), and your terms and conditions.
             </p>
             <div className="mt-4 bg-indigo-50 border border-indigo-200 rounded-lg p-4">
               <p className="text-slate-700 text-sm"><strong>Example:</strong> A web designer sends a quotation for $2,500 to build a 5-page website, with itemized costs for design, development, and revisions. The client reviews and approves it. Work begins.</p>
@@ -108,13 +142,36 @@ export default function InvoiceVsQuotationPage() {
               An <strong>invoice</strong> is a document you send to a client <em>after</em> work has been completed (or at an agreed billing milestone) requesting payment. It is a formal demand for money owed, and once issued, it creates a legal obligation for the client to pay within the stated terms.
             </p>
             <p className="text-slate-600 leading-relaxed mb-4">
-              Unlike a quotation, an invoice has a specific due date. It provides a permanent financial record for both parties and is required for proper bookkeeping and tax compliance.
+              Unlike a quotation, an invoice has a specific due date. It provides a permanent financial record for both parties and is required for proper bookkeeping and tax compliance. In many countries, VAT or GST invoices are a legal requirement for registered businesses.
             </p>
             <p className="text-slate-600 leading-relaxed">
               An invoice should match the originally agreed price from the quotation (unless additional work was authorized). Any discrepancies between the quote and invoice should be discussed with the client before sending.
             </p>
             <div className="mt-4 bg-green-50 border border-green-200 rounded-lg p-4">
               <p className="text-slate-700 text-sm"><strong>Example:</strong> The same web designer completes the website and sends invoice INV-042 for $2,500, due in 14 days, with bank account details and a payment link. This matches the approved quotation.</p>
+            </div>
+          </section>
+
+          {/* What is a Proforma Invoice */}
+          <section>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">What About a Proforma Invoice?</h2>
+            <p className="text-slate-600 leading-relaxed mb-4">
+              A <strong>proforma invoice</strong> sits between a quotation and a final invoice. It is a preliminary bill that looks like a real invoice but is explicitly marked as &quot;Proforma&quot; — meaning it is not a demand for payment yet.
+            </p>
+            <p className="text-slate-600 leading-relaxed mb-4">
+              Proforma invoices are commonly used in international trade to declare the value of goods for customs purposes, or in advance of delivering a service to give the client an official document to get internal budget approval before committing.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[
+                { label: "Quotation", color: "bg-indigo-50 border-indigo-200 text-indigo-700", note: "Before work. No payment required. Estimate only." },
+                { label: "Proforma Invoice", color: "bg-amber-50 border-amber-200 text-amber-700", note: "Before payment. For customs or budget approval purposes." },
+                { label: "Tax Invoice", color: "bg-green-50 border-green-200 text-green-700", note: "After work. Payment required. Legally binding." },
+              ].map(({ label, color, note }) => (
+                <div key={label} className={`border rounded-xl p-4 ${color}`}>
+                  <p className="font-bold mb-1">{label}</p>
+                  <p className="text-slate-600 text-sm">{note}</p>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -137,7 +194,7 @@ export default function InvoiceVsQuotationPage() {
                   </div>
                   <div className="flex-1 bg-white border border-slate-200 rounded-lg px-4 py-3 flex items-center justify-between">
                     <span className="font-semibold text-slate-900">{label}</span>
-                    <span className="text-slate-500 text-sm">{desc}</span>
+                    <span className="text-slate-500 text-sm hidden sm:block">{desc}</span>
                   </div>
                 </div>
               ))}
@@ -191,6 +248,25 @@ export default function InvoiceVsQuotationPage() {
             </div>
           </section>
 
+          {/* Common mistakes */}
+          <section>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Common Mistakes When Using Quotes and Invoices</h2>
+            <div className="space-y-3">
+              {[
+                "Sending an invoice without first getting an approved quotation — leads to payment disputes",
+                "Not including an expiry date on your quotation — clients may accept months later at the old price",
+                "Treating a quotation as legally binding — only a signed contract or accepted invoice creates a firm obligation",
+                "Changing the amount on the final invoice without informing the client first",
+                "Not converting the quotation number to an invoice number — always use sequential invoice numbering",
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-3 items-start bg-amber-50 border border-amber-100 p-4 rounded-lg">
+                  <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <p className="text-slate-700 text-sm">{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* Converting a Quote to Invoice */}
           <section>
             <h2 className="text-2xl font-bold text-slate-900 mb-4">Converting a Quotation into an Invoice</h2>
@@ -232,16 +308,26 @@ export default function InvoiceVsQuotationPage() {
             <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-blue-600" /> Related Guides
             </h2>
-            <Link
-              href="/guides/how-to-write-an-invoice"
-              className="group flex items-center justify-between bg-white border border-slate-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all"
-            >
-              <div>
-                <p className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How to Write a Professional Invoice</p>
-                <p className="text-sm text-slate-500 mt-1">6 min read</p>
-              </div>
-              <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-            </Link>
+            <div className="space-y-3">
+              {[
+                { href: "/guides/how-to-write-an-invoice", title: "How to Write a Professional Invoice", time: "9 min read" },
+                { href: "/guides/proforma-vs-regular-invoice", title: "Proforma vs Regular Invoice: Key Differences", time: "5 min read" },
+                { href: "/guides/how-to-track-unpaid-invoices", title: "How to Track Unpaid Invoices and Get Paid Faster", time: "9 min read" },
+                { href: "/guides/freelance-invoicing-guide", title: "The Ultimate Guide to Invoicing for Freelancers", time: "8 min read" },
+              ].map(({ href, title, time }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="group flex items-center justify-between bg-white border border-slate-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all"
+                >
+                  <div>
+                    <p className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{title}</p>
+                    <p className="text-sm text-slate-500 mt-1">{time}</p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </article>

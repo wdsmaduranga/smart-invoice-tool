@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Clock, HelpCircle, FileText, ArrowRight, BookOpen, Layers } from "lucide-react";
+import { Clock, HelpCircle, FileText, ArrowRight, BookOpen, Layers, CheckCircle } from "lucide-react";
+
+export const revalidate = 86400;
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What is a Proforma Invoice and When to Use It?",
+  "description": "Learn the difference between a proforma invoice and a standard invoice, when to send one, and how it impacts your accounting process.",
+  "url": "https://smartinvoicetool.com/guides/proforma-vs-regular-invoice",
+  "datePublished": "2025-03-15",
+  "dateModified": "2025-04-14",
+  "author": { "@type": "Organization", "name": "Smart Invoice Tool", "url": "https://smartinvoicetool.com" },
+  "publisher": { "@type": "Organization", "name": "Smart Invoice Tool", "url": "https://smartinvoicetool.com" },
+  "inLanguage": "en-US"
+};
 
 export const metadata: Metadata = {
   title: "What is a Proforma Invoice and When to Use It? | Smart Invoice Tool",
@@ -19,6 +34,10 @@ export const metadata: Metadata = {
 export default function ProformaInvoiceGuidePage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <div className="bg-white border-b border-slate-200 py-4 px-4">
         <div className="container mx-auto max-w-3xl">
           <nav className="flex items-center gap-2 text-sm text-slate-500">
@@ -35,7 +54,7 @@ export default function ProformaInvoiceGuidePage() {
         <div className="container mx-auto max-w-3xl">
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xs font-semibold bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">Business Strategy</span>
-            <span className="text-xs text-slate-500 flex items-center gap-1"><Clock className="w-3 h-3" /> 5 min read</span>
+            <span className="text-xs text-slate-500 flex items-center gap-1"><Clock className="w-3 h-3" /> 6 min read</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
             What is a Proforma Invoice and When to Use It?
@@ -43,6 +62,16 @@ export default function ProformaInvoiceGuidePage() {
           <p className="text-lg text-slate-600 leading-relaxed">
             Accounting terminology can be confusing. While most people are familiar with standard invoices and quotes, the &quot;proforma invoice&quot; often causes head-scratching. In this guide, we break down exactly what it is, how it works, and when your business should use one.
           </p>
+          {/* Author block */}
+          <div className="flex items-center gap-3 mt-6 pt-6 border-t border-slate-100">
+            <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="font-bold text-emerald-600 text-sm">SI</span>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-slate-900">Smart Invoice Team</p>
+              <p className="text-xs text-slate-500">Published March 2025 · Updated April 2025</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -109,6 +138,30 @@ export default function ProformaInvoiceGuidePage() {
             </ul>
           </section>
 
+          <section>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">What Must a Proforma Invoice Include?</h2>
+            <p className="text-slate-600 leading-relaxed mb-4">
+              While a proforma is not a legally binding payment document, it should still be precise and complete so the buyer can use it for import declarations, budget approvals, or advance payments. Include:
+            </p>
+            <div className="space-y-2">
+              {[
+                "The words 'Proforma Invoice' clearly at the top",
+                "Seller's name, address, and contact details",
+                "Buyer's name and address",
+                "An itemized list of goods/services with quantities and unit prices",
+                "Total value and currency",
+                "Estimated delivery/completion date",
+                "Validity period (e.g., 'Valid for 30 days')",
+                "Payment terms and conditions",
+              ].map((item, i) => (
+                <div key={i} className="flex gap-3 items-start bg-white border border-slate-200 p-3 rounded-lg">
+                  <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <p className="text-slate-700 text-sm">{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <div className="bg-emerald-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Looking to create an invoice?</h2>
             <p className="text-emerald-100 mb-6">Create professional regular or proforma invoices using our easy tool. No sign-up required.</p>
@@ -119,15 +172,24 @@ export default function ProformaInvoiceGuidePage() {
 
           <div>
             <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-emerald-600" /> Keep Learning
+              <BookOpen className="w-5 h-5 text-emerald-600" /> Related Guides
             </h2>
-            <Link href="/guides/invoice-vs-quotation" className="group flex items-center justify-between bg-white border border-slate-200 rounded-xl p-5 hover:border-emerald-300 hover:shadow-sm transition-all">
-              <div>
-                <p className="font-semibold text-slate-900 group-hover:text-emerald-600 transition-colors">Invoice vs. Quotation: What&quot;s the Difference?</p>
-                <p className="text-sm text-slate-500 mt-1">5 min read</p>
-              </div>
-              <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all" />
-            </Link>
+            <div className="space-y-3">
+              {[
+                { href: "/guides/invoice-vs-quotation", title: "Invoice vs. Quotation: What\u2019s the Difference?", time: "7 min read" },
+                { href: "/guides/how-to-write-an-invoice", title: "How to Write a Professional Invoice", time: "9 min read" },
+                { href: "/guides/how-to-track-unpaid-invoices", title: "How to Track Unpaid Invoices and Get Paid Faster", time: "9 min read" },
+                { href: "/guides/freelance-invoicing-guide", title: "The Ultimate Guide to Invoicing for Freelancers", time: "10 min read" },
+              ].map(({ href, title, time }) => (
+                <Link key={href} href={href} className="group flex items-center justify-between bg-white border border-slate-200 rounded-xl p-5 hover:border-emerald-300 hover:shadow-sm transition-all">
+                  <div>
+                    <p className="font-semibold text-slate-900 group-hover:text-emerald-600 transition-colors">{title}</p>
+                    <p className="text-sm text-slate-500 mt-1">{time}</p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </article>

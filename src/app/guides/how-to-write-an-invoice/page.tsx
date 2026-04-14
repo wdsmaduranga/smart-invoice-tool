@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, CheckCircle, AlertCircle, ArrowRight, Clock, BookOpen } from "lucide-react";
+import { FileText, CheckCircle, AlertCircle, ArrowRight, Clock, BookOpen, Globe, Shield, Zap } from "lucide-react";
+
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "How to Write a Professional Invoice - Complete Guide | Smart Invoice Tool",
-  description: "Learn how to write a professional invoice step-by-step. Discover what every invoice must include, how to format it correctly, set payment terms, and ensure you get paid on time.",
-  keywords: "how to write an invoice, professional invoice guide, invoice format, invoice elements, invoice payment terms, how to create invoice",
+  description: "Learn how to write a professional invoice step-by-step. Discover what every invoice must include, how to format it correctly, set payment terms, avoid common mistakes, and ensure you get paid on time.",
+  keywords: "how to write an invoice, professional invoice guide, invoice format, invoice elements, invoice payment terms, how to create invoice, invoice template, business invoice",
   openGraph: {
     title: "How to Write a Professional Invoice - Complete Guide",
     description: "Step-by-step guide to creating a professional invoice. Everything from required elements to payment terms and common mistakes.",
@@ -16,9 +18,27 @@ export const metadata: Metadata = {
   },
 };
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Write a Professional Invoice - Complete Guide",
+  "description": "Learn how to write a professional invoice step-by-step, including all required elements, payment terms, and formatting best practices.",
+  "url": "https://smartinvoicetool.com/guides/how-to-write-an-invoice",
+  "datePublished": "2025-02-01",
+  "dateModified": "2025-04-14",
+  "author": { "@type": "Organization", "name": "Smart Invoice Tool", "url": "https://smartinvoicetool.com" },
+  "publisher": { "@type": "Organization", "name": "Smart Invoice Tool", "url": "https://smartinvoicetool.com" },
+  "inLanguage": "en-US",
+};
+
 export default function HowToWriteInvoicePage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+
       {/* Breadcrumb */}
       <div className="bg-white border-b border-slate-200 py-4 px-4">
         <div className="container mx-auto max-w-3xl">
@@ -37,14 +57,24 @@ export default function HowToWriteInvoicePage() {
         <div className="container mx-auto max-w-3xl">
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xs font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Invoicing Basics</span>
-            <span className="text-xs text-slate-500 flex items-center gap-1"><Clock className="w-3 h-3" /> 6 min read</span>
+            <span className="text-xs text-slate-500 flex items-center gap-1"><Clock className="w-3 h-3" /> 9 min read</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
             How to Write a Professional Invoice
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            Whether you&apos;re a freelancer sending your first invoice or a small business owner looking to sharpen your billing process, this guide walks you through exactly what a professional invoice needs — and how to make sure you get paid on time.
+            Whether you&apos;re a freelancer sending your first invoice or a small business owner looking to sharpen your billing process, this guide walks you through exactly what a professional invoice needs — and how to make sure you get paid on time. A well-structured invoice is not just a payment request; it is a legal document that protects your business.
           </p>
+          {/* Author block */}
+          <div className="flex items-center gap-3 mt-6 pt-6 border-t border-slate-100">
+            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="font-bold text-blue-600 text-sm">SI</span>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-slate-900">Smart Invoice Team</p>
+              <p className="text-xs text-slate-500">Published February 2025 · Updated April 2025</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -58,8 +88,11 @@ export default function HowToWriteInvoicePage() {
             <p className="text-slate-600 leading-relaxed mb-4">
               An invoice is a formal document sent from a seller (you) to a buyer (your client) that requests payment for goods or services rendered. It serves as a legally significant record of the transaction and forms the basis of your accounts receivable.
             </p>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 leading-relaxed mb-4">
               Unlike a receipt — which confirms that payment has already been made — an invoice is a <strong>request for payment</strong>. It specifies exactly what was delivered, how much is owed, and by when payment is expected. A properly constructed invoice protects both you and your client.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              In many jurisdictions, invoices are also required for tax purposes. If you are VAT-registered (in the UK/EU) or GST-registered (in Australia, Canada, India), you are legally required to issue a compliant tax invoice for every taxable transaction.
             </p>
           </section>
 
@@ -129,7 +162,7 @@ export default function HowToWriteInvoicePage() {
           <section>
             <h2 className="text-2xl font-bold text-slate-900 mb-4">Payment Terms Best Practices</h2>
             <p className="text-slate-600 leading-relaxed mb-6">
-              Your payment terms directly affect how quickly you get paid. Here are the most commonly used terms and when to use them:
+              Your payment terms directly affect how quickly you get paid. Studies show that invoices with Net 7 or Net 14 terms get paid up to 3x faster than those with Net 30 terms. Here are the most commonly used terms and when to use them:
             </p>
             <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
               <table className="w-full text-sm">
@@ -162,6 +195,31 @@ export default function HowToWriteInvoicePage() {
             </p>
           </section>
 
+          {/* Section: Country-specific tax */}
+          <section>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Tax Requirements by Country</h2>
+            <p className="text-slate-600 leading-relaxed mb-6">
+              Tax invoice requirements vary significantly by jurisdiction. Here is a quick overview of the most important differences:
+            </p>
+            <div className="space-y-3">
+              {[
+                { country: "🇬🇧 United Kingdom", rule: "VAT-registered businesses must issue a VAT invoice showing their VAT number, the VAT rate applied, and the VAT amount separately." },
+                { country: "🇪🇺 European Union", rule: "EU VAT invoices must include the supplier's and buyer's VAT numbers for B2B transactions, plus a breakdown of the VAT rate." },
+                { country: "🇦🇺 Australia", rule: "GST-registered businesses issue a Tax Invoice for sales over AUD $82.50. Must include the words 'Tax Invoice' and your ABN." },
+                { country: "🇮🇳 India", rule: "GST invoices must include the GSTIN (GST Identification Number) of both seller and buyer, HSN/SAC codes, and the CGST/SGST/IGST breakdown." },
+                { country: "🇺🇸 United States", rule: "No federal invoice format requirements. State sales tax rules apply. Include the applicable sales tax rate and amount for taxable goods/services." },
+              ].map(({ country, rule }) => (
+                <div key={country} className="flex gap-4 bg-white border border-slate-200 p-4 rounded-xl">
+                  <Globe className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-slate-900 mb-1">{country}</p>
+                    <p className="text-slate-600 text-sm">{rule}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* Section 4 */}
           <section>
             <h2 className="text-2xl font-bold text-slate-900 mb-6">Common Invoice Mistakes to Avoid</h2>
@@ -173,6 +231,7 @@ export default function HowToWriteInvoicePage() {
                 "Using non-sequential invoice numbers that confuse accounting systems",
                 "Leaving out the currency — especially important for international clients",
                 "Vague line item descriptions like 'Services rendered' instead of specific work",
+                "Not including your tax registration number when required by law",
                 "Not following up after the due date passes",
               ].map((mistake, idx) => (
                 <div key={idx} className="flex gap-3 items-start bg-red-50 border border-red-100 p-4 rounded-lg">
@@ -195,10 +254,32 @@ export default function HowToWriteInvoicePage() {
                 "Follow up the day after the due date if payment hasn't arrived",
                 "For new clients, consider requiring a 50% deposit before starting work",
                 "State your late fee policy clearly on every invoice",
+                "Use consistent, sequential invoice numbers across all clients",
               ].map((tip, idx) => (
                 <div key={idx} className="flex gap-3 items-start bg-green-50 border border-green-100 p-4 rounded-lg">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <p className="text-slate-700 text-sm">{tip}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section: PDF vs Word */}
+          <section>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Why You Should Always Send a PDF Invoice</h2>
+            <p className="text-slate-600 leading-relaxed mb-4">
+              A common mistake is sending invoices as Word documents or editable spreadsheets. PDF is the industry standard for a reason — it locks the formatting so your invoice looks identical on every device and operating system, and it cannot be accidentally edited.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[
+                { icon: <Shield className="w-6 h-6 text-blue-500" />, title: "Tamper-Proof", desc: "PDF content cannot be accidentally overwritten or modified by the recipient." },
+                { icon: <Zap className="w-6 h-6 text-blue-500" />, title: "Universal Compatibility", desc: "Opens correctly on every device, OS, and email client without font substitution issues." },
+                { icon: <FileText className="w-6 h-6 text-blue-500" />, title: "Print-Ready", desc: "Designed for physical printing at any size without layout distortion." },
+              ].map(({ icon, title, desc }) => (
+                <div key={title} className="bg-white border border-slate-200 rounded-xl p-5 text-center">
+                  <div className="flex justify-center mb-3">{icon}</div>
+                  <p className="font-bold text-slate-900 mb-1">{title}</p>
+                  <p className="text-slate-600 text-sm">{desc}</p>
                 </div>
               ))}
             </div>
@@ -222,16 +303,26 @@ export default function HowToWriteInvoicePage() {
             <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-blue-600" /> Related Guides
             </h2>
-            <Link
-              href="/guides/invoice-vs-quotation"
-              className="group flex items-center justify-between bg-white border border-slate-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all"
-            >
-              <div>
-                <p className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Invoice vs. Quotation: What&apos;s the Difference?</p>
-                <p className="text-sm text-slate-500 mt-1">5 min read</p>
-              </div>
-              <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-            </Link>
+            <div className="space-y-3">
+              {[
+                { href: "/guides/invoice-vs-quotation", title: "Invoice vs. Quotation: What\u2019s the Difference?", time: "5 min read" },
+                { href: "/guides/how-to-track-unpaid-invoices", title: "How to Track Unpaid Invoices and Get Paid Faster", time: "9 min read" },
+                { href: "/guides/freelance-invoicing-guide", title: "The Ultimate Guide to Invoicing for Freelancers", time: "8 min read" },
+                { href: "/guides/top-10-invoicing-mistakes", title: "Top 10 Invoicing Mistakes Small Businesses Make", time: "7 min read" },
+              ].map(({ href, title, time }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="group flex items-center justify-between bg-white border border-slate-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-sm transition-all"
+                >
+                  <div>
+                    <p className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{title}</p>
+                    <p className="text-sm text-slate-500 mt-1">{time}</p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </article>
