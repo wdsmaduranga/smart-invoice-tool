@@ -34,18 +34,22 @@ export default function About() {
       {/* Stats Section */}
       <section className="relative -mt-16 px-4">
         <div className="container mx-auto max-w-5xl">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center border border-slate-100">
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-4 gap-8 text-center border border-slate-100">
             <div>
               <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
               <div className="text-slate-600 font-medium">Free Forever</div>
             </div>
             <div className="border-t md:border-t-0 md:border-l border-slate-100 pt-8 md:pt-0">
-              <div className="text-4xl font-bold text-blue-600 mb-2">0</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">No</div>
               <div className="text-slate-600 font-medium">Sign-up Required</div>
             </div>
             <div className="border-t md:border-t-0 md:border-l border-slate-100 pt-8 md:pt-0">
               <div className="text-4xl font-bold text-blue-600 mb-2">10+</div>
               <div className="text-slate-600 font-medium">Currencies Supported</div>
+            </div>
+            <div className="border-t md:border-t-0 md:border-l border-slate-100 pt-8 md:pt-0">
+              <div className="text-4xl font-bold text-blue-600 mb-2">2024</div>
+              <div className="text-slate-600 font-medium">Founded</div>
             </div>
           </div>
         </div>

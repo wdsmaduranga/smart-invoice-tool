@@ -98,6 +98,13 @@ export default async function RootLayout({
           gtag('config', 'G-T09GT55T2Y');
           gtag('config', 'AW-624488252');
         `}</Script>
+        {/* Google AdSense */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7326615606723844"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -170,9 +177,9 @@ export default async function RootLayout({
       >
         <div className="flex flex-col min-h-screen">
           <Header user={session?.user} />
-          <main className="flex-1">
+          <div className="flex-1">
             {children}
-          </main>
+          </div>
           <Footer />
         </div>
         <Toaster />
