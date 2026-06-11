@@ -7,7 +7,7 @@ export default function Home() {
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-12">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Smart Invoice & Quotation Tool
+            Samart Invoice & Quotation Tool
           </h1>
           <h2 className="text-xl md:text-2xl text-gray-600 mb-6">
             Professional Generator - Create invoices and quotes in seconds
