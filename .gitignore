@@ -42,3 +42,6 @@ next-env.d.ts
 /src/generated/prisma
 
 invoice-app-next.zip
+
+# prisma
+/prisma

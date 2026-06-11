@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { auth } from "@/auth";
 import { Toaster } from 'sonner';
+import { ConditionalAdScript } from "@/components/ConditionalAdUnit";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -100,12 +101,7 @@ export default async function RootLayout({
         `}</Script>
 
         {/* Google AdSense test */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7326615606723844"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <ConditionalAdScript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

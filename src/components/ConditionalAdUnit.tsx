@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
+import Script from 'next/script';
 
 /**
  * Pages where AdSense ads are allowed (content-rich public pages only).
@@ -11,6 +12,25 @@ import { useEffect } from 'react';
  */
 const AD_ALLOWED_PATHS = ['/', '/about', '/faq', '/privacy', '/terms'];
 const AD_ALLOWED_PREFIXES = ['/guides'];
+
+export function ConditionalAdScript() {
+  const pathname = usePathname();
+
+  const isAllowed =
+    AD_ALLOWED_PATHS.includes(pathname) ||
+    AD_ALLOWED_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+
+  if (!isAllowed) return null;
+
+  return (
+    <Script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7326615606723844"
+      crossOrigin="anonymous"
+      strategy="afterInteractive"
+    />
+  );
+}
 
 interface ConditionalAdUnitProps {
   adClient: string;
