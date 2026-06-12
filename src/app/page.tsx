@@ -143,6 +143,100 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* New Section: Supported Invoice Types */}
+      <section className="bg-gradient-to-br from-indigo-900 to-blue-900 text-white py-16">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">
+              Types of Invoices You Can Create
+            </h3>
+            <p className="text-indigo-200 max-w-2xl mx-auto">
+              Our free generator supports all standard commercial invoicing formats required by modern accounting standards.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+              <h4 className="text-xl font-bold mb-2 text-blue-300">Standard Invoice</h4>
+              <p className="text-sm text-indigo-100">The standard billing document listing the completed services or products, quantities, prices, payment terms, and overall balance due.</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+              <h4 className="text-xl font-bold mb-2 text-blue-300">Proforma Invoice</h4>
+              <p className="text-sm text-indigo-100">A preliminary bill sent before work begins or products are delivered. It acts as an estimate and commits the seller to the listed price.</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+              <h4 className="text-xl font-bold mb-2 text-blue-300">Commercial Invoice</h4>
+              <p className="text-sm text-indigo-100">Specifically designed for importing and exporting goods across borders, containing required details for international customs declarations.</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+              <h4 className="text-xl font-bold mb-2 text-blue-300">Quotation / Estimate</h4>
+              <p className="text-sm text-indigo-100">Sent to prospective clients detailing the cost of proposed projects. Once approved, it can be quickly converted into a standard invoice.</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+              <h4 className="text-xl font-bold mb-2 text-blue-300">Retainer Invoice</h4>
+              <p className="text-sm text-indigo-100">Sent to clients upfront to secure an advance payment before periodic services commence, common in agency or consulting contracts.</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+              <h4 className="text-xl font-bold mb-2 text-blue-300">Credit Note / Invoice</h4>
+              <p className="text-sm text-indigo-100">Issued to adjust, reduce, or completely void the value of a previously sent invoice due to adjustments, errors, or returns.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Section: Invoicing Best Practices */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+              Best Practices for Smarter Invoicing
+            </h3>
+            <p className="text-gray-600">
+              Adopt these professional invoicing strategies to minimize late payments and maintain a healthy cash flow.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            <div className="flex gap-4 items-start">
+              <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex-shrink-0 flex items-center justify-center font-bold">1</div>
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Outline Clear Terms (Net 15 / Net 30)</h4>
+                <p className="text-gray-650 text-sm">Always state the exact payment deadline and acceptable payment methods. Defining terms like &quot;Net 30&quot; (due in 30 days) or &quot;Due on Receipt&quot; sets expectations early and leaves no room for confusion.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex-shrink-0 flex items-center justify-center font-bold">2</div>
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Send Invoices Instantly</h4>
+                <p className="text-gray-650 text-sm">Do not delay your billing. The best time to send an invoice is immediately upon completing a milestone or delivering the project when the value you provided is still fresh in the client&apos;s mind.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex-shrink-0 flex items-center justify-center font-bold">3</div>
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Itemize Everything to Prevent Questions</h4>
+                <p className="text-gray-650 text-sm">Provide clear, granular descriptions for all charges instead of a single lump sum. Clients are much quicker to approve and process bills that show exactly what hours, materials, or tasks are being charged.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex-shrink-0 flex items-center justify-center font-bold">4</div>
+              <div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Follow Up Gently but Systematically</h4>
+                <p className="text-gray-650 text-sm">Send a friendly payment reminder three to five days before an invoice becomes due, and immediately if the deadline passes. Consistency shows clients that you take your billing seriously.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
       {/* FAQ Section for SEO */}
       <section className="bg-gray-50 py-16">
